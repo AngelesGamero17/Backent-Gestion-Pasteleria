@@ -11,7 +11,7 @@ const router = Router();
 
 router.get("/", getEmpleado);
 
-router.post("/", uploadEmpleado, createEmpleado);
+router.post("/", createEmpleado);
 
 router.get("/:id", getOneEmpleado);
 
