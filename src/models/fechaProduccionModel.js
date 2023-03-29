@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
 
 export const fechaProduccionModel = sequelize.define("fechaProduccionModel", {
-    id: {
+    ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,

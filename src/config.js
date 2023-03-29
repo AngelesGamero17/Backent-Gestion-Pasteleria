@@ -3,6 +3,13 @@ import dotenv from "dotenv"
 dotenv.config();
 
 export default{
-    APP_PORT : process.env.APP_PORT || 5432,
-    APP_HOST : process.env.APP_HOST || "localhost"
+    // server config
+    APP_PORT : process.env.APP_PORT || 5000,
+    APP_HOST : process.env.APP_HOST || "localhost",
+    //database config
+    DB_NAME : process.env.DB_NAME ||"bdpasteleria",
+    DB_USER : process.env.DB_USER ||"postgres",
+    DB_PASS : process.env.DB_PASS ||"pasteleria1.",
+    DB_HOST : process.env.DB_HOST ||"localhost",
+
 };
