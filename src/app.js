@@ -1,8 +1,6 @@
 
-import pkg from 'express';
-const {express} = pkg;
+import express from 'express';
 import config from "./config.js";
-
 import indexRouter from "./routes/index.routes.js";
 import clienteRouter from "./routes/cliente.routes.js";
 import detalleCompProductoRouter from "./routes/detalleCompProducto.routes.js";

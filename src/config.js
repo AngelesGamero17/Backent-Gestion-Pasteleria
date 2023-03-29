@@ -2,7 +2,11 @@ import dotenv from "dotenv"
 
 dotenv.config();
 
-export default{
-    APP_PORT : process.env.APP_PORT || 5432,
-    APP_HOST : process.env.APP_HOST || "localhost"
-};
+export default
+    ({
+        user: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        database: process.env.DB_NAME,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+});
