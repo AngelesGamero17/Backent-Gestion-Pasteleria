@@ -31,15 +31,14 @@ insumoModel.hasMany(fechaProduccionModel, { foreignKey: "fechaProduccion", sourc
 produccionModel.hasMany(fechaProduccionModel, { foreignKey: "produccion", sourceKey: "ID" });
 //fechaProduccionModel.hasOne(produccionModel, { foreignKey: "produccion", stargetId: "ID" });
 //producto a detalleComprobante
-productoModel.hasMany(detalleComprobanteModel, { foreignKey: "producto", sourceKey: "ID" });
-//productoModel.belongsToMany(detalleComprobanteModel, { through: detalleCompProductModel });
-//detalleComprobanteModel.belongsToMany(productoModel, { foreignKey: "producto", stargetId: "ID" });
+productoModel.belongsToMany(detalleComprobanteModel, { through: detalleCompProducModel });
+detalleComprobanteModel.belongsToMany(productoModel, { through: detalleCompProducModel});
 //detalleComprobante a Comprobante
-detalleComprobanteModel.hasMany(comprobanteModel, { foreignKey: "detalleComprobante", stargetId: "ID" });
-//comprobanteModel.belongsTo(detalleComprobanteModel, { foreignKey: "detalleComprobante", stargetId: "ID" });
+detalleComprobanteModel.belongsTo(comprobanteModel);
+//comprobanteModel.belongsTo(detalleComprobanteModel );
 //empleado a comprobante
-empleadoModel.hasMany(comprobanteModel, { foreignKey: "empleado", sourceKey: "ID" });
+empleadoModel.belongsTo(comprobanteModel);
 //comprobanteModel.hasOne(empleadoModel, { foreignKey: "empleado", stargetId: "ID" });
 //empleado a produccion
-produccionModel.hasMany(detalleComprobanteModel, { foreignKey: "produccion", sourceKey: "ID" });
+empleadoModel.belongsTo(produccionModel, { foreignKey: "produccion", sourceKey: "ID" });
 //detalleComprobanteModel.hasOne(produccionModel, { foreignKey: "produccion", stargetId: "ID" });
