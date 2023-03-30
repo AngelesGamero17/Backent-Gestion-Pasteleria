@@ -17,6 +17,10 @@ import tipoInsumoRouter from "./routes/tipoInsumo.routes.js";
 
 const app =  express();
 
+//midellewares
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 app.set("port" , config.APP_PORT);
 app.set("host", config.APP_HOST);
 
