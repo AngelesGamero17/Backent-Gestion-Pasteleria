@@ -5,27 +5,27 @@ export const comprobanteModel = sequelize.define("comprobanteModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       empleado: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       fechaComp: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: false
       },
       cliente: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       estadoComp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       detalleComprobante: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
     }
 );

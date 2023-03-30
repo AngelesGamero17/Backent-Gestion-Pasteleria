@@ -5,11 +5,11 @@ export const familiaProductoModel = sequelize.define("familiaProductoModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       descripcion: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       
     }

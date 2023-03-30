@@ -5,19 +5,19 @@ export const fechaProduccionModel = sequelize.define("fechaProduccionModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       insumo: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       produccion: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       cantidad: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
      
     }

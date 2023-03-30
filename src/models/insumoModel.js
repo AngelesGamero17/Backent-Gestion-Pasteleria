@@ -5,31 +5,31 @@ export const insumoModel = sequelize.define("insumoModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       nombreInsumo: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       stkInsumo: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       fechaVen: {
         type: DataTypes.TIME,
-        allowNull: false,
+        allowNull: false
       },
       fecCompra: {
         type: DataTypes.TIME,
-        allowNull: false,
+        allowNull: false
       },
       tipoInsumo: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       precioInsumo: {
         type: DataTypes.DECIMAL,
-        allowNull: false,
+        allowNull: false
       },
       
      

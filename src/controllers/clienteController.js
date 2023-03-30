@@ -12,9 +12,9 @@ export const getCliente = async (req, res) => {
 export const createCliente = async (req, res) => {
   try {
     const { ID,nomCli,apellCli,direCli,telefono,Email } = req.body;
-    if (cliente) {
-      return res.status(400).json({ message: "Cliente ya existe" });
-    }
+    //if (cliente) {
+    //  return res.status(400).json({ message: "Cliente ya existe" });
+   // }
     const nuevoCliente = await clienteModel.create({
       ID,
       nomCli,

@@ -5,11 +5,11 @@ export const tipoInsumoModel = sequelize.define("tipoInsumoModelo", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       descripInsumo: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
 
     }

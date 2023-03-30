@@ -12,9 +12,9 @@ export const getTipoEmpleado = async (req, res) => {
 export const createTipoEmpleado = async (req, res) => {
   try {
     const { ID,rol} = req.body;
-    if (tipoEmpleado) {
-      return res.status(400).json({ message: "tipoEmpleado ya existe" });
-    }
+    //if (tipoEmpleado) {
+    //  return res.status(400).json({ message: "tipoEmpleado ya existe" });
+    //}
     const nuevotipoEmpleado = await tipoEmpleadoModel.create({
       ID,
       rol

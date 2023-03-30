@@ -5,29 +5,28 @@ export const clienteModel = sequelize.define("clienteModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       nomCli: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       apellCli: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       direCli: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       telefono: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       Email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      
     }
 );
 

@@ -5,11 +5,11 @@ export const tipoEmpleadoModel = sequelize.define("tipoEmpleadoModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       rol: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       
     }

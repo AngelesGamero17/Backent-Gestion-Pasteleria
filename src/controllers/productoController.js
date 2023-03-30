@@ -12,9 +12,9 @@ export const getProducto = async (req, res) => {
 export const createProducto = async (req, res) => {
   try {
     const { ID,descripPro,precio,stotk,familiaProducto } = req.body;
-    if (producto) {
-      return res.status(400).json({ message: "producto ya existe" });
-    }
+    //if (producto) {
+    //  return res.status(400).json({ message: "producto ya existe" });
+    //}
     const nuevoproducto = await productoModel.create({
       ID,
       descripPro,

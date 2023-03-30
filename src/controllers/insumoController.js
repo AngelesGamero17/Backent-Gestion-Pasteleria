@@ -12,9 +12,9 @@ export const getInsumo = async (req, res) => {
 export const createInsumo = async (req, res) => {
   try {
     const { ID,nombreInsumo,stkIsumo,fechaVen,fecCompra,tipoInsumo,precioInsumo} = req.body;
-    if (insumo) {
-      return res.status(400).json({ message: "insumo ya existe" });
-    }
+    //if (insumo) {
+    //  return res.status(400).json({ message: "insumo ya existe" });
+    //}
     const nuevoinsumo = await insumoModel.create({
       ID,
       nombreInsumo,

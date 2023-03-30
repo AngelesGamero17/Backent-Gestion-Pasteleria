@@ -12,9 +12,9 @@ export const getProduccion = async (req, res) => {
 export const createProduccion = async (req, res) => {
   try {
     const { ID,empleado,fechaProduccion,estado} = req.body;
-    if (produccion) {
-      return res.status(400).json({ message: "produccion ya existe" });
-    }
+    //if (produccion) {
+    //  return res.status(400).json({ message: "produccion ya existe" });
+    //}
     const nuevoproduccion = await produccionModel.create({
       ID,
       empleado,

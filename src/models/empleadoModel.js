@@ -9,31 +9,31 @@ export const empleadoModel = sequelize.define("empledoModel", {
       },
       nomEmp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       apellEmp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       fecNac: {
         type: DataTypes.TIME,
-        allowNull: false,
+        allowNull: false
       },
       direccEmp: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       telefono: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       ingreso: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       tipoEmpleado: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
     }
 );

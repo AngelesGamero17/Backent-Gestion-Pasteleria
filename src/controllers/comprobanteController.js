@@ -12,9 +12,9 @@ export const getComprobante = async (req, res) => {
 export const createComprobante = async (req, res) => {
   try {
     const { ID,empleado,fechaComp,cliente,estadoComp,detalleComprobante } = req.body;
-    if (comprobante) {
-      return res.status(400).json({ message: "Comprobante ya existe" });
-    }
+    //if (comprobante) {
+    //  return res.status(400).json({ message: "Comprobante ya existe" });
+    //}
     const nuevoComprobante = await comprobanteModel.create({
       ID,
       empleado,

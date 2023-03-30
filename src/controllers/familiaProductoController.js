@@ -12,9 +12,9 @@ export const getFamiliaProducto = async (req, res) => {
 export const createFamiliaProducto = async (req, res) => {
   try {
     const { ID,descripcion } = req.body;
-    if (familiaProducto) {
-      return res.status(400).json({ message: "familiaProducto ya existe" });
-    }
+    //if (familiaProducto) {
+    //  return res.status(400).json({ message: "familiaProducto ya existe" });
+    //}
     const nuevoCliente = await familiaProductoModel.create({
       ID,
       descripcion

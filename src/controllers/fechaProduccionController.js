@@ -12,9 +12,9 @@ export const getFechaProduccion = async (req, res) => {
 export const createFechaProduccion = async (req, res) => {
   try {
     const { ID,insumo,produccion,cantidad } = req.body;
-    if (cliente) {
-      return res.status(400).json({ message: "fechaProduccion ya existe" });
-    }
+    //if (cliente) {
+    ///  return res.status(400).json({ message: "fechaProduccion ya existe" });
+    //}
     const nuevofechaProduccion = await fechaProduccionModel.create({
       ID,
       insumo,

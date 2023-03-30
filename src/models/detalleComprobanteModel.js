@@ -5,19 +5,19 @@ export const detalleComprobanteModel = sequelize.define("detalleComprobanteModel
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       producto:{
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       fechaProduccion: {
         type: DataTypes.TIME,
-        allowNull: false,
+        allowNull: false
       },
       estado: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       
     }

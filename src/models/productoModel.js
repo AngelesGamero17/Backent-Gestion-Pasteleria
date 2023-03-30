@@ -5,23 +5,23 @@ export const productoModel = sequelize.define("productoModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: true
       },
       descripPro: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       precio: {
         type: DataTypes.DECIMAL,
-        allowNull: false,
+        allowNull: false
       },
       stock: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       familiaProducto: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       
       

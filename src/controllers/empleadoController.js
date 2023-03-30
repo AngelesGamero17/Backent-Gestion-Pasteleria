@@ -12,9 +12,9 @@ export const getEmpleado = async (req, res) => {
 export const createEmpleado = async (req, res) => {
   try {
     const { ID,nomEmp,apellEmp,fecNac,direccEmp,telefono,ingreso,tipoEmpleado } = req.body;
-    if (empleado) {
-      return res.status(400).json({ message: "Empleado ya existe" });
-    }
+    //if (empleado) {
+    //  return res.status(400).json({ message: "Empleado ya existe" });
+    //}
     const nuevoempleado = await empleadoModel.create({
       ID,
       nomEmp,

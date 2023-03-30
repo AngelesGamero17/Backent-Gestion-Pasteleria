@@ -12,9 +12,9 @@ export const getTipoInsumo = async (req, res) => {
 export const createTipoInsumo = async (req, res) => {
   try {
     const { ID,descripInsumo} = req.body;
-    if (tipoInsumo) {
-      return res.status(400).json({ message: "tipoInsumo ya existe" });
-    }
+    //if (tipoInsumo) {
+    //  return res.status(400).json({ message: "tipoInsumo ya existe" });
+    //}
     const nuevotipoInsumo = await tipoInsumoModel.create({
       ID,
       descripInsumo

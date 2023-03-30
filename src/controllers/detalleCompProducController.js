@@ -12,9 +12,9 @@ export const getDetalleCompProducto = async (req, res) => {
 export const createDetalleCompProducto = async (req, res) => {
   try {
     const {idDeComp,idPro } = req.body;
-    if (detalleCompProduc) {
-      return res.status(400).json({ message: "detalleCompProduc ya existe" });
-    }
+    //if (detalleCompProduc) {
+    //  return res.status(400).json({ message: "detalleCompProduc ya existe" });
+    //}
     const nuevodetalleCompProduc = await detalleCompProducModel.create({
       idDeComp,
       idPro

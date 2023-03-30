@@ -12,9 +12,9 @@ export const getDetalleComprobante = async (req, res) => {
 export const createDetalleComprobante = async (req, res) => {
   try {
     const { ID,producto,fechaProduccion,estado } = req.body;
-    if (detalleComprobante) {
-      return res.status(400).json({ message: "detalleComprobante ya existe" });
-    }
+    //if (detalleComprobante) {
+    //  return res.status(400).json({ message: "detalleComprobante ya existe" });
+    //}
     const nuevodetalleComprobante = await detalleComprobanteModel.create({
       ID,
       producto,
