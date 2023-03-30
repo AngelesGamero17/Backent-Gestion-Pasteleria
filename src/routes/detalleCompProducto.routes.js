@@ -13,10 +13,10 @@ router.get("/", getDetalleCompProducto);
 
 router.post("/", createDetalleCompProducto);
 
-router.get("/:id", getOneDetalleCompProducto);
+router.get("/:ID", getOneDetalleCompProducto);
 
-router.put("/:id", updateDetalleCompProducto);
+router.put("/:ID", updateDetalleCompProducto);
 
-router.delete("/:id", deleteDetalleCompProducto);
+router.delete("/:ID", deleteDetalleCompProducto);
 
 export default router;

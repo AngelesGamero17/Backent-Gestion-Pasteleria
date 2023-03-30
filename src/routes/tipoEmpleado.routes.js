@@ -13,10 +13,10 @@ router.get("/", getTipoEmpleado);
 
 router.post("/", createTipoEmpleado);
 
-router.get("/:id", getOneTipoEmpleado);
+router.get("/:ID", getOneTipoEmpleado);
 
-router.put("/:id", updateTipoEmpleado);
+router.put("/:ID", updateTipoEmpleado);
 
-router.delete("/:id", deleteTipoEmpleado);
+router.delete("/:ID", deleteTipoEmpleado);
 
 export default router;

@@ -13,10 +13,10 @@ router.get("/", getFechaProduccion);
 
 router.post("/", createFechaProduccion);
 
-router.get("/:id", getOneFechaProduccion);
+router.get("/:ID", getOneFechaProduccion);
 
-router.put("/:id", updateFechaProduccion);
+router.put("/:ID", updateFechaProduccion);
 
-router.delete("/:id", deleteFechaProduccion);
+router.delete("/:ID", deleteFechaProduccion);
 
 export default router;

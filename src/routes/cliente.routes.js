@@ -13,10 +13,10 @@ router.get("/", getCliente);
 
 router.post("/", createCliente);
 
-router.get("/:id", getOneCliente);
+router.get("/:ID", getOneCliente);
 
-router.put("/:id", updateCliente);
+router.put("/:ID", updateCliente);
 
-router.delete("/:id", deleteCliente);
+router.delete("/:ID", deleteCliente);
 
 export default router;

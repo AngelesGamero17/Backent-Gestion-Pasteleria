@@ -13,10 +13,10 @@ router.get("/", getTipoInsumo);
 
 router.post("/", createTipoInsumo);
 
-router.get("/:id", getOneTipoInsumo);
+router.get("/:ID", getOneTipoInsumo);
 
-router.put("/:id", updateTipoInsumo);
+router.put("/:ID", updateTipoInsumo);
 
-router.delete("/:id", deleteTipoInsumo);
+router.delete("/:ID", deleteTipoInsumo);
 
 export default router;

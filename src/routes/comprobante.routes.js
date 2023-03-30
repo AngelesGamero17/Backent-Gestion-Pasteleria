@@ -13,10 +13,10 @@ router.get("/", getComprobante);
 
 router.post("/", createComprobante);
 
-router.get("/:id", getOneComprobante);
+router.get("/:ID", getOneComprobante);
 
-router.put("/:id", updateComprobante);
+router.put("/:ID", updateComprobante);
 
-router.delete("/:id", deleteComprobante);
+router.delete("/:ID", deleteComprobante);
 
 export default router;

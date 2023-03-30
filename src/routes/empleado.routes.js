@@ -13,10 +13,10 @@ router.get("/", getEmpleado);
 
 router.post("/", createEmpleado);
 
-router.get("/:id", getOneEmpleado);
+router.get("/:ID", getOneEmpleado);
 
-router.put("/:id", updateEmpleado);
+router.put("/:ID", updateEmpleado);
 
-router.delete("/:id", deleteEmpleado);
+router.delete("/:ID", deleteEmpleado);
 
 export default router;
