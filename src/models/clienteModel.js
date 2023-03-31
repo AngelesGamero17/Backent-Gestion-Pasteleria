@@ -27,6 +27,10 @@ export const clienteModel = sequelize.define("clienteModel", {
         type: DataTypes.STRING,
         allowNull: false
       },
+      dni: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
     }
 );
 
