@@ -4,7 +4,7 @@ dotenv.config();
 
 export default{
     // server config
-    APP_PORT : process.env.APP_PORT || 5000,
+    APP_PORT : process.env.APP_PORT || 6000,
     APP_HOST : process.env.APP_HOST || "localhost",
     //database config
     DB_NAME : process.env.DB_NAME ||"bdpasteleria",
