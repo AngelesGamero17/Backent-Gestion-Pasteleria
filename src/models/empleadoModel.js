@@ -1,41 +1,53 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, DATE, NOW } from "sequelize";
 import { sequelize } from "../database/database.js";
 
 export const empleadoModel = sequelize.define("empledoModel", {
-    ID: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      nomEmp: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      apellEmp: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      fecNac: {
-        type: DataTypes.TIME,
-        allowNull: false
-      },
-      direccEmp: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      telefono: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      ingreso: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      tipoEmpleado: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-    }
+  ID: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  nomEmp: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  apellEmp: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING,
+    required: true,
+    trim: true,
+    unique: true,
+    lowercase: true,
+    index: { unique: true }
+  },
+  password: {
+    type: DataTypes.STRING,
+    required: true,
+  },
+  fecNac: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: NOW()
+  },
+  direccEmp: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  telefono: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  ingreso: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: NOW()
+  },
+  tipoEmpleado: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+}
 );
-
-

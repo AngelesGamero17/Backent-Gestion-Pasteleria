@@ -1,4 +1,5 @@
 import { empleadoModel } from "../models/empleadoModel.js";
+import { encriptarContrasena } from "../libs/encryptPassword.js";
 
 export const getEmpleado = async (req, res) => {
   try {
@@ -11,19 +12,24 @@ export const getEmpleado = async (req, res) => {
 
 export const createEmpleado = async (req, res) => {
   try {
-    const { ID,nomEmp,apellEmp,fecNac,direccEmp,telefono,ingreso,tipoEmpleado } = req.body;
+    let { ID, nomEmp, apellEmp, email, password, fecNac, direccEmp, telefono, ingreso, tipoEmpleado } = req.body;
     //if (empleado) {
     //  return res.status(400).json({ message: "Empleado ya existe" });
     //}
+
+    password = await encriptarContrasena(password)
+
     const nuevoempleado = await empleadoModel.create({
       ID,
       nomEmp,
       apellEmp,
+      email,
+      password,
       fecNac,
       direccEmp,
       telefono,
       ingreso,
-      tipoEmpleado 
+      tipoEmpleado
     });
     res.status(201).json({
       message: "empleado creado Correctamente",
@@ -62,13 +68,17 @@ export const deleteEmpleado = async (req, res) => {
 export const updateEmpleado = async (req, res) => {
   try {
     const { ID } = req.params;
-    const { nomEmp,apellEmp,fecNac,direccEmp,telefono,ingreso,tipoEmpleado} = req.body;
+    let { nomEmp, apellEmp, email, password, fecNac, direccEmp, telefono, ingreso, tipoEmpleado } = req.body;
     const empleado = await empleadoModel.findOne({ where: { ID } });
-    if (!empleado)
+    if (!empleado) {
       return res.status(404).json({ message: "empleado no encontrado" });
-    await empleadoModel.update({ nomEmp,apellEmp,fecNac,direccEmp,telefono,ingreso,tipoEmpleado }, { where: { ID } });
-    res.status(200).json({ message: "empleado actualizado Correctamente" });
+    }
+    password = await encriptarContrasena(password)
+    console.log(password)
+    await empleadoModel.update({ nomEmp, apellEmp, email, password, fecNac, direccEmp, telefono, ingreso, tipoEmpleado }, { where: { ID } });
+    res.status(200).json({ message: "Empleado actualizado Correctamente" });
   } catch (error) {
+    console.log(error)
     res.status(500).json(error);
   }
 };

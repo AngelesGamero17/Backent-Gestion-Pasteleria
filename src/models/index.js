@@ -42,3 +42,6 @@ empleadoModel.belongsTo(comprobanteModel);
 //empleado a produccion
 empleadoModel.belongsTo(produccionModel, { foreignKey: "produccion", sourceKey: "ID" });
 //detalleComprobanteModel.hasOne(produccionModel, { foreignKey: "produccion", stargetId: "ID" });
+
+//relacion uno a uno empleado usuario
+
