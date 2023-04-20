@@ -1,5 +1,8 @@
 import { empleadoModel } from "../models/empleadoModel.js";
 import { encriptarContrasena } from "../libs/encryptPassword.js";
+import config from "../config.js";
+import { generateToken, generateRefreshToken } from "../utils/tokenManager.js";
+import  jwt  from "jsonwebtoken";
 
 export const getEmpleado = async (req, res) => {
   try {
@@ -31,12 +34,16 @@ export const createEmpleado = async (req, res) => {
       ingreso,
       tipoEmpleado
     });
-    res.status(201).json({
-      message: "empleado creado Correctamente",
-      data: nuevoempleado,
-    });
+    
+    const token = jwt.sign({ID: nuevoempleado.ID}, config.Jwt_SECRET,{
+      expiresIn: "24h"
+    }) 
+    res.json({
+      message:'autoentificacion exitosa',
+      token: token
+    }) // aquí se envía la respuesta al cliente con el token
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ message: "Error al generar el token" });
   }
 };
 

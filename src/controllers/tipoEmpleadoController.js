@@ -67,3 +67,4 @@ export const updateTipoEmpleado = async (req, res) => {
   }
 };
 
+
