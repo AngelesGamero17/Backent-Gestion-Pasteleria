@@ -39,4 +39,41 @@ app.use(`/api/${config.API_VERSION}/tipoEmpleado`, tipoEmpleadoRouter);
 app.use(`/api/${config.API_VERSION}/tipoInsumo`, tipoInsumoRouter);
 
 //export
+
+
+import routerEmpleado from './routes/empleado.routes.js'
+app.use('/api/v1/empleado', routerEmpleado)
+
+import routerCliente from './routes/cliente.routes.js'
+app.use('/api/v1/cliente', routerCliente)
+
+import routerDetalleProducto from './routes/detalleCompProducto.routes.js'
+app.use('/api/v1/detalleProducto', routerDetalleProducto)
+
+import routerDetalleComprobante from './routes/detalleComprobante.routes.js'
+app.use('/api/v1/detalleComprobante',routerDetalleComprobante )
+
+import routerFamiliaProducto from './routes/familiaProducto.routes.js'
+app.use('/api/v1/familiaProducto', routerFamiliaProducto)
+
+import routerFechaProduccion from './routes/fechaProduccion.routes.js'
+app.use('/api/v1/fechaProduccion', routerFechaProduccion)
+
+import routerInsumo from './routes/insumo.routes.js'
+app.use('/api/v1/insumo', routerInsumo)
+
+import routerProduccion from './routes/produccion.routes.js'
+app.use('/api/v1/produccion', routerProduccion)
+
+import routerProducto from './routes/producto.routes.js'
+app.use('/api/v1/producto', routerProducto)
+
+import routerTipoEmpleado from './routes/tipoEmpleado.routes.js'
+app.use('/api/v1/tipoEmpleado', routerTipoEmpleado)
+
+import routerTipoInsumo from './routes/tipoInsumo.routes.js'
+app.use('/api/v1/tipoInsumo', routerTipoInsumo)
+
+import routerAuthLogin from './routes/login.routes.js'
+app.use('/api/v1/login', routerAuthLogin)
 export default app;

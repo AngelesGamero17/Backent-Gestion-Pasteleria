@@ -2,8 +2,8 @@ import { comprobanteModel } from "../models/comprobanteModel.js";
 
 export const getComprobante = async (req, res) => {
   try {
-    const comprobante = await comprobanteModel.findAll();
-    res.status(200).json(comprobante);
+    const respuesta = await comprobanteModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

@@ -2,8 +2,8 @@ import { tipoEmpleadoModel } from "../models/tipoEmpleadoModel.js";
 
 export const getTipoEmpleado = async (req, res) => {
   try {
-    const tipoEmpleado = await tipoEmpleadoModel.findAll();
-    res.status(200).json(tipoEmpleado);
+    const respuesta = await tipoEmpleadoModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

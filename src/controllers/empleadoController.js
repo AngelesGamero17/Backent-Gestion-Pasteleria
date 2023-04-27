@@ -6,8 +6,8 @@ import  jwt  from "jsonwebtoken";
 
 export const getEmpleado = async (req, res) => {
   try {
-    const empleado = await empleadoModel.findAll();
-    res.status(200).json(empleado);
+    const respuesta = await empleadoModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -35,7 +35,7 @@ export const createEmpleado = async (req, res) => {
       tipoEmpleado
     });
     
-    const token = jwt.sign({ID: nuevoempleado.ID}, config.Jwt_SECRET,{
+    const token = jwt.sign({ID: nuevoempleado.ID}, config.JWT_SECRET,{
       expiresIn: "24h"
     }) 
     res.json({

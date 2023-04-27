@@ -6,17 +6,18 @@ import {
   updateProducto,
   deleteProducto,
 } from "../controllers/productoController.js";
+import { requireToken } from "../middlewares/requireToken.js";
 
 const router = Router();
 
 router.get("/", getProducto);
 
-router.post("/", createProducto);
+router.post("/", requireToken,createProducto);
 
 router.get("/:ID", getOneProducto);
 
-router.put("/:ID", updateProducto);
+router.put("/:ID",requireToken, updateProducto);
 
-router.delete("/:ID", deleteProducto);
+router.delete("/:ID",requireToken, deleteProducto);
 
 export default router;

@@ -6,17 +6,18 @@ import {
   updateDetalleCompProducto,
   deleteDetalleCompProducto,
 } from "../controllers/detalleCompProducController.js";
+import { requireToken } from "../middlewares/requireToken.js";
 
 const router = Router();
 
 router.get("/", getDetalleCompProducto);
 
-router.post("/", createDetalleCompProducto);
+router.post("/",requireToken ,createDetalleCompProducto);
 
 router.get("/:ID", getOneDetalleCompProducto);
 
-router.put("/:ID", updateDetalleCompProducto);
+router.put("/:ID",requireToken, updateDetalleCompProducto);
 
-router.delete("/:ID", deleteDetalleCompProducto);
+router.delete("/:ID",requireToken, deleteDetalleCompProducto);
 
 export default router;

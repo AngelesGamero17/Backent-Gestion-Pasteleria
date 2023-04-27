@@ -6,17 +6,18 @@ import {
   updateCliente,
   deleteCliente,
 } from "../controllers/clienteController.js";
+import { requireToken } from "../middlewares/requireToken.js";
 
 const router = Router();
 
 router.get("/", getCliente);
 
-router.post("/", createCliente);
+router.post("/",requireToken, createCliente);
 
 router.get("/:ID", getOneCliente);
 
-router.put("/:ID", updateCliente);
+router.put("/:ID",requireToken, updateCliente);
 
-router.delete("/:ID", deleteCliente);
+router.delete("/:ID",requireToken, deleteCliente);
 
 export default router;

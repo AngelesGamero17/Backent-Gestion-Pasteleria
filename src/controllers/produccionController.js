@@ -2,8 +2,8 @@ import { produccionModel } from "../models/produccionModel.js";
 
 export const getProduccion = async (req, res) => {
   try {
-    const produccion = await produccionModel.findAll();
-    res.status(200).json(produccion);
+    const respuesta= await produccionModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

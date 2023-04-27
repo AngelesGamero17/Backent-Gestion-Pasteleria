@@ -1,8 +1,5 @@
 import app from "./app.js"
 import { sequelize } from "./database/database.js"
-import authRouter from "./routes/auth.route.js"
-
-app.use('/api/v1/auth',authRouter)
 
 import"./models/index.js"
 app.listen(app.get("port"), async () => {
@@ -15,7 +12,7 @@ app.listen(app.get("port"), async () => {
         )
         
     } catch (error) {
-        console.log("Error conneting to databse, error");
+        console.log("Error conneting to database, error");
         console.error(error);
     }
 }

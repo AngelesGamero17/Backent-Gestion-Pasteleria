@@ -2,8 +2,8 @@ import { clienteModel } from "../models/clienteModel.js";
 
 export const getCliente = async (req, res) => {
   try {
-    const cliente = await clienteModel.findAll();
-    res.status(200).json(cliente);
+    const respuesta = await clienteModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

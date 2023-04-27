@@ -6,17 +6,18 @@ import {
   updateFamiliaProducto,
   deleteFamiliaProducto,
 } from "../controllers/familiaProductoController.js";
+import { requireToken } from "../middlewares/requireToken.js";
 
 const router = Router();
 
 router.get("/", getFamiliaProducto);
 
-router.post("/", createFamiliaProducto);
+router.post("/",requireToken, createFamiliaProducto);
 
 router.get("/:ID", getOneFamiliaProducto);
 
-router.put("/:ID", updateFamiliaProducto);
+router.put("/:ID",requireToken, updateFamiliaProducto);
 
-router.delete("/:ID", deleteFamiliaProducto);
+router.delete("/:ID", requireToken,deleteFamiliaProducto);
 
 export default router;

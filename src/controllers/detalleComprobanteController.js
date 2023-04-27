@@ -2,8 +2,8 @@ import { detalleComprobanteModel } from "../models/detalleComprobanteModel.js";
 
 export const getDetalleComprobante = async (req, res) => {
   try {
-    const detalleComprobante = await detalleComprobanteModel.findAll();
-    res.status(200).json(detalleComprobante);
+    const respuesta = await detalleComprobanteModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

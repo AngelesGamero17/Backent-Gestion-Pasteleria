@@ -2,8 +2,8 @@ import { familiaProductoModel } from "../models/familiaProductoModel.js";
 
 export const getFamiliaProducto = async (req, res) => {
   try {
-    const familiaProducto = await familiaProductoModel.findAll();
-    res.status(200).json(familiaProducto);
+    const respuesta = await familiaProductoModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

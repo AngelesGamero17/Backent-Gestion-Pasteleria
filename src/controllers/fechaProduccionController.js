@@ -2,8 +2,8 @@ import { fechaProduccionModel } from "../models/fechaProduccionModel.js";
 
 export const getFechaProduccion = async (req, res) => {
   try {
-    const fechaProduccion = await fechaProduccionModel.findAll();
-    res.status(200).json(fechaProduccion);
+    const respuesta = await fechaProduccionModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

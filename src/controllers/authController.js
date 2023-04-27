@@ -1,9 +1,40 @@
-export const registrar = (req,res)=>{
-    console.log(req.body);
-    res.json({ok:'registrar'});
-};
+import { compararPassword } from "../middlewares/compararPassword.js";
+import { empleadoModel } from "../models/empleadoModel.js";
+import jwt from 'jsonwebtoken';
 
-export const login = (req,res) => {
-    res.json({ok:"login"});
-};
+export const authController = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email || !password)
+            return res.status(404).json({ message: "All fields are required" });
+        const emailExist = await empleadoModel.findOne({
+            where: {
+                email: email
+            }
+        })
 
+        if (emailExist) {
+            let passwordIsCorrect = compararPassword(password, emailExist.password)
+            if (passwordIsCorrect) {
+                const token = jwt.sign({ emailExist }, process.env.JWT_SECRET, {
+                    expiresIn: "24h"
+                });
+                return res.status(200).json({
+                    message: "Logueado correctamente",
+                    token: token
+                })
+            } else {
+                return res.status(200).json({
+                    message: "Contraseña incorrecta"
+                })
+            }
+        } else {
+            return res.status(200).json({ message: "Usuario no encontrado" })
+        }
+
+        res.status(201).json({ message: "Login Correcto", data: emailExist });
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+
+};

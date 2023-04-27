@@ -2,8 +2,8 @@ import { insumoModel } from "../models/insumoModel.js";
 
 export const getInsumo = async (req, res) => {
   try {
-    const insumo = await insumoModel.findAll();
-    res.status(200).json(insumo);
+    const respuesta= await insumoModel.findAll();
+    res.status(200).json(respuesta);
   } catch (error) {
     res.status(500).json(error);
   }

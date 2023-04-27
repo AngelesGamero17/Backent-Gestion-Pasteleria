@@ -6,17 +6,18 @@ import {
   updateTipoEmpleado,
   deleteTipoEmpleado,
 } from "../controllers/tipoEmpleadoController.js";
+import { requireToken } from "../middlewares/requireToken.js";
 
 const router = Router();
 
 router.get("/", getTipoEmpleado);
 
-router.post("/", createTipoEmpleado);
+router.post("/",requireToken,createTipoEmpleado);
 
 router.get("/:ID", getOneTipoEmpleado);
 
-router.put("/:ID", updateTipoEmpleado);
+router.put("/:ID", requireToken,updateTipoEmpleado);
 
-router.delete("/:ID", deleteTipoEmpleado);
+router.delete("/:ID", requireToken,deleteTipoEmpleado);
 
 export default router;

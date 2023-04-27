@@ -12,7 +12,7 @@ export default{
     DB_PASS : process.env.DB_PASS ||"pasteleria1.",
     DB_HOST : process.env.DB_HOST ||"localhost",
     API_VERSION:process.env.API_VERSION||'v1',
-    Jwt_SECRET:'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
+    JWT_SECRET:'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 
 
 };
