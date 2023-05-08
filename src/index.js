@@ -2,6 +2,7 @@ import app from "./app.js"
 import { sequelize } from "./database/database.js"
 
 import"./models/index.js"
+
 app.listen(app.get("port"), async () => {
     try {
         await sequelize.sync({force:false});
@@ -16,4 +17,5 @@ app.listen(app.get("port"), async () => {
         console.error(error);
     }
 }
+
 );

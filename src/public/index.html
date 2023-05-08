@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +7,9 @@
     <title>Logear</title>
 </head>
 <body>
-    <form id="form">
-        <input type="email" value="Angeles@gmail.com" id="email">
-        <input type="password" value="Angelessssssssssssssss" id="password">
+    <form ID="form">
+        <input type="email" value="Angeliwis@gmail.com" ID="email">
+        <input type="password" value="Angelessssssssssssssss" ID="password">
         <button type="submit">Acceder</button>
     </form>
     <script>
@@ -18,28 +18,30 @@
         const email = document.getElementById('email')
 
         form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            try {
-                const res = await fetch('http://localhost:6000/api/v1/AuthLogin/login',{
-                    method: 'POST',
-                    headers:{
-                        'Content-type':'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: email.value , 
-                        password:password.value,
-                    }),
-                });
-                
-                console.log(res.ok,res.status);
-
-                const {token} = await res.json();
-                //localStorage.setItem("token", token);
-
-            } catch (error) {
-                console.log(error);
-            }
+    e.preventDefault();
+    try {
+        console.log(email.value, password.value); // Imprimir los valores de email y password en la consola
+        const res = await fetch('http://localhost:5000/api/v1/login',{
+            method: 'POST',
+            headers:{
+                'Content-type':'application/json',
+            },
+            body: JSON.stringify({
+                email: email.value , 
+                password:password.value,
+            }),
         });
+        
+        console.log(res.ok,res.status); // Imprimir el estado de la respuesta en la consola
+
+        const {token} = await res.json();
+        //localStorage.setItem("token", token);
+
+    } catch (error) {
+        console.log(error); // Imprimir cualquier error en la consola
+    }
+});
+
     </script>
 </body>
 </html>

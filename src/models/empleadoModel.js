@@ -27,11 +27,6 @@ export const empleadoModel = sequelize.define("empledoModel", {
     type: DataTypes.STRING,
     required: true,
   },
-  fecNac: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: NOW()
-  },
   direccEmp: {
     type: DataTypes.STRING,
     allowNull: false

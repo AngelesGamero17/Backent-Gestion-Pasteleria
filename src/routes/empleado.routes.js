@@ -11,13 +11,9 @@ import { requireToken } from "../middlewares/requireToken.js";
 const router = Router();
 
 router.get("/", getEmpleado);
-
 router.post("/",createEmpleado);
-
 router.get("/:ID", getOneEmpleado);
-
 router.put("/:ID",requireToken, updateEmpleado);
-
 router.delete("/:ID",requireToken, deleteEmpleado);
 
 export default router;
