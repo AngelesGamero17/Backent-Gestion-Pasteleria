@@ -10,7 +10,7 @@ import familiaProductoRouter from "./routes/familiaProducto.routes.js";
 import fechaProduccionRouter from "./routes/fechaProduccion.routes.js";
 import insumoRouter from "./routes/insumo.routes.js";
 import produccionRouter from "./routes/produccion.routes.js";
-import productoRouter from "./routes/produccion.routes.js";
+import productoRouter from "./routes/producto.routes.js";
 import tipoEmpleadoRouter from "./routes/tipoEmpleado.routes.js";
 import tipoInsumoRouter from "./routes/tipoInsumo.routes.js";
 import loginRouter from "./routes/login.routes.js"
