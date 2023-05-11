@@ -13,6 +13,7 @@ import produccionRouter from "./routes/produccion.routes.js";
 import productoRouter from "./routes/producto.routes.js";
 import tipoEmpleadoRouter from "./routes/tipoEmpleado.routes.js";
 import tipoInsumoRouter from "./routes/tipoInsumo.routes.js";
+import comprobanteRouter from "./routes/comprobante.routes.js";
 import loginRouter from "./routes/login.routes.js"
 import path from 'path';
 const __dirname = path.resolve();
@@ -44,6 +45,7 @@ app.use(`/api/${config.API_VERSION}/produccion`, produccionRouter);
 app.use(`/api/${config.API_VERSION}/producto`, productoRouter);
 app.use(`/api/${config.API_VERSION}/tipoEmpleado`, tipoEmpleadoRouter);
 app.use(`/api/${config.API_VERSION}/tipoInsumo`, tipoInsumoRouter);
+app.use(`/api/${config.API_VERSION}/coprobante`, comprobanteRouter);
 app.use(`/api/${config.API_VERSION}/login`, loginRouter);
 
 //export
@@ -70,6 +72,8 @@ import routerTipoEmpleado from './routes/tipoEmpleado.routes.js'
 app.use('/api/v1/tipoEmpleado', routerTipoEmpleado)
 import routerTipoInsumo from './routes/tipoInsumo.routes.js'
 app.use('/api/v1/tipoInsumo', routerTipoInsumo)
+import routerComprobante from './routes/comprobante.routes.js'
+app.use('/api/v1/comprobante', routerComprobante)
 import routerAuthLogin from './routes/login.routes.js'
 app.use('/api/v1/login', routerAuthLogin)
 
