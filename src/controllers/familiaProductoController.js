@@ -46,7 +46,7 @@ export const deleteFamiliaProducto = async (req, res) => {
     const familiaProducto = await familiaProductoModel.findOne({ where: { ID } });
     if (!familiaProducto)
       return res.status(404).json({ message: "familiaProducto no encontrado" });
-    await clienteModel.destroy({ where: { ID } });
+    await familiaProductoModel.destroy({ where: { ID } });
     res.status(200).json({ message: "FamiliaProducto eliminado Satisfactoriamente" });
   } catch (error) {
     res.status(500).json(error);
@@ -60,7 +60,7 @@ export const updateFamiliaProducto = async (req, res) => {
     const familiaProducto = await familiaProductoModel.findOne({ where: { ID } });
     if (!familiaProducto)
       return res.status(404).json({ message: "familiaProducto no encontrado" });
-    await clienteModel.update({ descripcion  }, { where: { ID } });
+    await familiaProductoModel.update({ descripcion  }, { where: { ID } });
     res.status(200).json({ message: "familiaProducto actualizado Correctamente" });
   } catch (error) {
     res.status(500).json(error);
