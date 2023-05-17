@@ -21,7 +21,11 @@ export const authController = async (req, res) => {
                 });
                 return res.status(200).json({
                     message: "Logueado correctamente",
-                    token: token
+                    token: token,
+                    data: {
+                        id: emailExist.ID,
+                        tipoEmpleado: emailExist.tipoEmpleado
+                    }
                 })
             } else {
                 return res.status(200).json({

@@ -21,7 +21,7 @@ export const empleadoModel = sequelize.define("empledoModel", {
     trim: true,
     unique: true,
     lowercase: true,
-    index: { unique: true }
+    index: { unique: true } 
   },
   password: {
     type: DataTypes.STRING,
@@ -35,11 +35,7 @@ export const empleadoModel = sequelize.define("empledoModel", {
     type: DataTypes.STRING,
     allowNull: false
   },
-  ingreso: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: NOW()
-  },
+  
   tipoEmpleado: {
     type: DataTypes.INTEGER,
     allowNull: false

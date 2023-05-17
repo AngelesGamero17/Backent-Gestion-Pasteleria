@@ -11,17 +11,15 @@ export const getCliente = async (req, res) => {
 
 export const createCliente = async (req, res) => {
   try {
-    const { ID,nomCli,apellCli,direCli,telefono,Email,dni } = req.body;
+    const { ID,nomCli,direCli,telefono,dni } = req.body;
     //if (cliente) {
     //  return res.status(400).json({ message: "Cliente ya existe" });
    // }
     const nuevoCliente = await clienteModel.create({
       ID,
       nomCli,
-      apellCli,
       direCli,
       telefono,
-      Email,
       dni
     });
     res.status(201).json({
@@ -61,11 +59,11 @@ export const deleteCliente = async (req, res) => {
 export const updateCliente = async (req, res) => {
   try {
     const { ID } = req.params;
-    const { nomCli,apellCli,direCli,telefono,Email,dni } = req.body;
+    const { nomCli,direCli,telefono,dni } = req.body;
     const cliente = await clienteModel.findOne({ where: { ID } });
     if (!cliente)
       return res.status(404).json({ message: "Cliente no encontrado" });
-    await clienteModel.update({ nomCli,apellCli,direCli,telefono,Email,dni }, { where: { ID } });
+    await clienteModel.update({ nomCli,direCli,telefono,dni }, { where: { ID } });
     res.status(200).json({ message: "Cliente actualizado Correctamente" });
   } catch (error) {
     res.status(500).json(error);

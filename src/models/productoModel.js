@@ -7,7 +7,11 @@ export const productoModel = sequelize.define("productoModel", {
         primaryKey: true,
         autoIncrement: true
       },
-      descripPro: {
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      cantidad: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -15,12 +19,8 @@ export const productoModel = sequelize.define("productoModel", {
         type: DataTypes.DECIMAL,
         allowNull: false
       },
-      stock: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      familiaProducto: {
-        type: DataTypes.INTEGER,
+      fechaProduccion: {
+        type: DataTypes.DATEONLY,
         allowNull: false
       },
       

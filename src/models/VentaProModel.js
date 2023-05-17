@@ -1,26 +1,31 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
 
-export const fechaProduccionModel = sequelize.define("fechaProduccionModel", {
+export const VentaProModel = sequelize.define("VentaProModel", {
     ID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      insumo: {
+      idCliente:{
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      produccion: {
+      idEmpleado:{
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      cantidad: {
-        type: DataTypes.INTEGER,
+      descripcion:{
+        type: DataTypes.STRING,
         allowNull: false
       },
-     
+      precioTotal:{
+        type: DataTypes.DECIMAL,
+        allowNull: false
+      },
+      fechaVenta: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      }, 
     }
 );
-
-

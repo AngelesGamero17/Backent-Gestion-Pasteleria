@@ -11,16 +11,12 @@ export const insumoModel = sequelize.define("insumoModel", {
         type: DataTypes.STRING,
         allowNull: false
       },
-      stkInsumo: {
+      cantidadInsumo: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      fechaVen: {
-        type: DataTypes.TIME,
-        allowNull: false
-      },
       fecCompra: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATEONLY,
         allowNull: false
       },
       tipoInsumo: {

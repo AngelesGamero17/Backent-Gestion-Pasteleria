@@ -15,7 +15,7 @@ export const getEmpleado = async (req, res) => {
 
 export const createEmpleado = async (req, res) => {
   try {
-    let { ID, nomEmp, apellEmp, email, password, direccEmp, telefono, ingreso, tipoEmpleado } = req.body;
+    let { ID, nomEmp, apellEmp, email, password, direccEmp, telefono, tipoEmpleado } = req.body;
     //if (empleado) {
     //  return res.status(400).json({ message: "Empleado ya existe" });
     //}
@@ -30,7 +30,6 @@ export const createEmpleado = async (req, res) => {
       password,
       direccEmp,
       telefono,
-      ingreso,
       tipoEmpleado
     });
     
@@ -74,14 +73,14 @@ export const deleteEmpleado = async (req, res) => {
 export const updateEmpleado = async (req, res) => {
   try {
     const { ID } = req.params;
-    let { nomEmp, apellEmp, email, password, direccEmp, telefono, ingreso, tipoEmpleado } = req.body;
+    let { nomEmp, apellEmp, email, password, direccEmp, telefono,tipoEmpleado } = req.body;
     const empleado = await empleadoModel.findOne({ where: { ID } });
     if (!empleado) {
       return res.status(404).json({ message: "empleado no encontrado" });
     }
     password = await encriptarContrasena(password)
     console.log(password)
-    await empleadoModel.update({ nomEmp, apellEmp, email, password, direccEmp, telefono, ingreso, tipoEmpleado }, { where: { ID } });
+    await empleadoModel.update({ nomEmp, apellEmp, email, password, direccEmp, telefono,tipoEmpleado }, { where: { ID } });
     res.status(200).json({ message: "Empleado actualizado Correctamente" });
   } catch (error) {
     console.log(error)

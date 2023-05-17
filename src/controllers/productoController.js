@@ -11,16 +11,16 @@ export const getProducto = async (req, res) => {
 
 export const createProducto = async (req, res) => {
   try {
-    const { ID,descripPro,precio,stock,familiaProducto } = req.body;
+    const { ID,nombre,cantidad,precio,fechaProduccion } = req.body;
     //if (producto) {
     //  return res.status(400).json({ message: "producto ya existe" });
     //}
     const nuevoproducto = await productoModel.create({
       ID,
-      descripPro,
+      nombre,
+      cantidad,
       precio,
-      stock,
-      familiaProducto
+      fechaProduccion
     });
     res.status(201).json({
       message: "producto creado Correctamente",
@@ -59,11 +59,11 @@ export const deleteProducto = async (req, res) => {
 export const updateProducto = async (req, res) => {
   try {
     const { ID } = req.params;
-    const {descripPro,precio,stock,familiaProducto  } = req.body;
+    const {nombre,cantidad,precio,fechaProduccion} = req.body;
     const producto = await productoModel.findOne({ where: { ID } });
     if (!producto)
       return res.status(404).json({ message: "producto no encontrado" });
-    await productoModel.update({ descripPro,precio,stock,familiaProducto }, { where: { ID } });
+    await productoModel.update({nombre,cantidad,precio,fechaProduccion}, { where: { ID } });
     res.status(200).json({ message: "producto actualizado Correctamente" });
   } catch (error) {
     res.status(500).json(error);
