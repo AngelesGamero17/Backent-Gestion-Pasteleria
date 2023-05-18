@@ -78,8 +78,9 @@ export const updateEmpleado = async (req, res) => {
     if (!empleado) {
       return res.status(404).json({ message: "empleado no encontrado" });
     }
-    password = await encriptarContrasena(password)
-    console.log(password)
+    //encriptacion de contraseña
+    //password = await encriptarContrasena(password)
+    //console.log(password)
     await empleadoModel.update({ nomEmp, apellEmp, email, password, direccEmp, telefono,tipoEmpleado }, { where: { ID } });
     res.status(200).json({ message: "Empleado actualizado Correctamente" });
   } catch (error) {
