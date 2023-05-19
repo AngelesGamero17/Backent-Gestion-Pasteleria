@@ -19,7 +19,6 @@ export const createEmpleado = async (req, res) => {
     //if (empleado) {
     //  return res.status(400).json({ message: "Empleado ya existe" });
     //}
-
     password = await encriptarContrasena(password)
 
     const nuevoempleado = await empleadoModel.create({

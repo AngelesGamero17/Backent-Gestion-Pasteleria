@@ -23,7 +23,10 @@ export const productoModel = sequelize.define("productoModel", {
         type: DataTypes.DATEONLY,
         allowNull: false
       },
-      
+      img:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       
     }
 );

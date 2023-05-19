@@ -27,8 +27,11 @@ export const insumoModel = sequelize.define("insumoModel", {
         type: DataTypes.DECIMAL,
         allowNull: false
       },
-      
-     
+
+      img:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
     }
 );
 
