@@ -61,6 +61,28 @@ app.use('/api/v1/ventaProducto', routerVentaProducto)
 import routerAuthLogin from './routes/login.routes.js'
 app.use('/api/v1/login', routerAuthLogin)
 
+// swagger
+import swaggerUI from "swagger-ui-express";
+import swaggerJsDoc from "swagger-jsdoc";
 
+const swaggerSpec = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "API Express ProstgreSQL",
+            version: "1.0.0"
+        },
+        servers: [
+            {
+                url: "http://localhost:5000"
+            }
+        ]
+    },
+    apis: [`${path.join(__dirname, "/src/routes/*.js")}`]
+}
+//middleware
+app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
+
+// swagger
 
 export default app;
