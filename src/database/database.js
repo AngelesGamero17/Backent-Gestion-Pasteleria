@@ -1,12 +1,6 @@
 import { Sequelize } from "sequelize";
-import config  from "../config.js";
+import config from "../config.js";
 
-export const sequelize = new Sequelize(
-    config.DB_NAME,
-    config.DB_USER,
-    config.DB_PASS,
-    {
-        HOST:config.DB_HOST,
-        dialect:"postgres"
-    }
-);
+console.log("cccc " + config.DB_HOST + config.DB_NAME + config.DB_USER + config.DB_PASS  );
+
+export const sequelize = new Sequelize("postgres://pasteleria:password123@db:5432/pasteleria");

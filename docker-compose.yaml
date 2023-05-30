@@ -1,0 +1,61 @@
+version: '2'
+
+networks:
+  pasteleria:
+    driver: bridge
+
+services:
+  db:
+    image: bitnami/postgresql:latest
+    environment:
+      - POSTGRESQL_USERNAME=pasteleria
+      - POSTGRESQL_DATABASE=pasteleria
+      - POSTGRESQL_PASSWORD=password123
+    ports:
+      - '5432:5432'
+    networks:
+          - pasteleria
+  
+  db-admin:
+    image: dpage/pgadmin4:latest
+    environment:
+     - PGADMIN_DEFAULT_EMAIL=admin@domain.com
+     - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+     - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True 
+     - PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!" 
+     - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+    ports:
+      - '80:80'
+    networks:
+          - pasteleria
+
+  backend:
+    image: docker.io/bitnami/node:18
+    ports:
+      - '5000:5000'
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=pasteleria
+      - DB_USER=pasteleria
+      - DB_PASS=password123
+      - API_VERSION=v1  
+    command: "sh -c 'npm install && npm start'"  
+    volumes:
+      - './Backent-Gestion-Pasteleria:/app'
+    depends_on:
+      - db
+    networks:
+          - pasteleria
+  
+  frontend:
+    image: docker.io/bitnami/node:18
+    ports:
+      - '3000:3000'
+    command: "sh -c 'npm install && npm start'"  
+    volumes:
+      - './Frontend-Gestion-Pasteleria:/app'
+    depends_on:
+      - backend
+    networks:
+          - pasteleria
