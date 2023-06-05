@@ -50,7 +50,7 @@ export const deleteVentaProducto = async (req, res) => {
     const VentaProducto = await VentaProModel.findOne({ where: { ID } });
     if (!VentaProducto)
       return res.status(404).json({ message: "Venta de Producto no encontrado" });
-    await VentaInsModel.destroy({ where: { ID } });
+    await VentaProModel.destroy({ where: { ID } });
     res.status(200).json({ message: "Venta de Producto a sido eliminado Satisfactoriamente" });
   } catch (error) {
     res.status(500).json(error);

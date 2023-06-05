@@ -1,13 +1,17 @@
 import {clienteModel } from "./clienteModel.js";
 import {insumoModel} from "./insumoModel.js";
+import {productoModel} from "./productoModel.js";
 import {tipoEmpleadoModel} from "./tipoEmpleadoModel.js";
 import {tipoInsumoModel} from "./tipoInsumoModel.js";
+import {tipoProductoModel} from "./tipoProductoModel.js";
 import {empleadoModel} from "./empleadoModel.js";
 import {VentaProModel} from "./VentaProModel.js"
 import {VentaInsModel} from "./VentaInsModel.js"
 
 //relacion de tipo de insumo a insumo
 tipoInsumoModel.hasMany(insumoModel, { foreignKey: "tipoInsumo", sourceKey: "ID" });
+
+tipoProductoModel.hasMany(productoModel, { foreignKey: "tipoProducto", sourceKey: "ID" });
 // insumoModel.hasOne(tipoInsumoModel );
 // tipo empleado a empleado
 tipoEmpleadoModel.hasMany(empleadoModel, { foreignKey: "tipoEmpleado", sourceKey: "ID" });

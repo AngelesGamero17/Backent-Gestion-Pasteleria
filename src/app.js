@@ -8,6 +8,7 @@ import insumoRouter from "./routes/insumo.routes.js";
 import productoRouter from "./routes/producto.routes.js";
 import tipoEmpleadoRouter from "./routes/tipoEmpleado.routes.js";
 import tipoInsumoRouter from "./routes/tipoInsumo.routes.js";
+import tipoProductoRouter from "./routes/tipoProducto.routes.js";
 import VentaInsumoRouter from "./routes/ventaIns.routes.js";
 import VentaProductoRouter from "./routes/ventaPro.routes.js"
 import loginRouter from "./routes/login.routes.js"
@@ -36,6 +37,7 @@ app.use(`/api/${config.API_VERSION}/insumo`, insumoRouter);
 app.use(`/api/${config.API_VERSION}/producto`, productoRouter);
 app.use(`/api/${config.API_VERSION}/tipoEmpleado`, tipoEmpleadoRouter);
 app.use(`/api/${config.API_VERSION}/tipoInsumo`, tipoInsumoRouter);
+app.use(`/api/${config.API_VERSION}/tipoProducto`, tipoProductoRouter);
 app.use(`/api/${config.API_VERSION}/ventaInsumo`, VentaInsumoRouter);
 app.use(`/api/${config.API_VERSION}/ventaProducto`, VentaProductoRouter);
 app.use(`/api/${config.API_VERSION}/login`, loginRouter);
@@ -54,6 +56,8 @@ import routerTipoEmpleado from './routes/tipoEmpleado.routes.js'
 app.use('/api/v1/tipoEmpleado', routerTipoEmpleado)
 import routerTipoInsumo from './routes/tipoInsumo.routes.js'
 app.use('/api/v1/tipoInsumo', routerTipoInsumo)
+import routerTipoProducto from './routes/tipoProducto.routes.js'
+app.use('/api/v1/tipoProducto', routerTipoProducto)
 import routerVentaInsumo from './routes/ventaIns.routes.js'
 app.use('/api/v1/ventaInsumo', routerVentaInsumo)
 import routerVentaProducto from './routes/ventaPro.routes.js'
