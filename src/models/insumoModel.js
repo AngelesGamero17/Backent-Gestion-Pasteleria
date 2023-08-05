@@ -19,6 +19,10 @@ export const insumoModel = sequelize.define("insumoModel", {
         type: DataTypes.DATEONLY,
         allowNull: false
       },
+      fecVen: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      },
       tipoInsumo: {
         type: DataTypes.INTEGER,
         allowNull: false

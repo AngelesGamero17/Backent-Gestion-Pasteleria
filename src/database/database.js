@@ -6,7 +6,7 @@ export const sequelize = new Sequelize(
     config.DB_USER,
     config.DB_PASS,
     {
-        HOST:config.DB_HOST,
+        host:config.DB_HOST,
         dialect:"postgres"
     }
 );

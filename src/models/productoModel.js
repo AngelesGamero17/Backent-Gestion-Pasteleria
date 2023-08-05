@@ -23,6 +23,10 @@ export const productoModel = sequelize.define("productoModel", {
         type: DataTypes.DATEONLY,
         allowNull: false
       },
+      fechaVencimiento: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      },
       tipoProducto: {
         type: DataTypes.INTEGER,
         allowNull: false

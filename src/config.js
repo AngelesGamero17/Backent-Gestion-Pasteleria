@@ -1,8 +1,9 @@
 import dotenv from "dotenv"
-
 dotenv.config();
 
+
 export default{
+    
     // server config
     APP_PORT : process.env.APP_PORT || 5000,
     APP_HOST : process.env.APP_HOST || "localhost",
@@ -13,6 +14,5 @@ export default{
     DB_HOST : process.env.DB_HOST ||"localhost",
     API_VERSION:process.env.API_VERSION||'v1',
     JWT_SECRET:'SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
-
 
 };

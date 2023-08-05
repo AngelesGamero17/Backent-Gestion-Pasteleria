@@ -28,7 +28,7 @@ export const authController = async (req, res) => {
                     }
                 })
             } else {
-                return res.status(200).json({
+                return res.status(400).json({
                     message: "Contraseña incorrecta"
                 })
             }

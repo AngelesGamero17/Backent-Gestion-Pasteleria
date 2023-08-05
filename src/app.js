@@ -12,6 +12,8 @@ import tipoProductoRouter from "./routes/tipoProducto.routes.js";
 import VentaInsumoRouter from "./routes/ventaIns.routes.js";
 import VentaProductoRouter from "./routes/ventaPro.routes.js"
 import loginRouter from "./routes/login.routes.js"
+import imagenRouter from "./routes/imagen.routes.js"
+import Stripe from 'stripe';
 import path from 'path';
 const __dirname = path.resolve();
 
@@ -22,6 +24,33 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }));
 
+
+//metodo de pago stripe
+//stripe
+const stripe = new Stripe("sk_test_51NIkg2EE8ZogoiscXXmlua7DNc4aInJrIMd4HFaniBI9t849GSX25QpBB1tjiAiXEAfrjz1RX1CsT8EbRq2XDAE700ufhVy6mO")
+app.use(express.json())
+
+app.post('/api/v1/stripe', async (req, res) => {
+    try {
+        const { id, amount, products } = req.body
+        console.log(req.body);
+        const amountInCents = Math.round(amount * 100);
+        const payment = await stripe.paymentIntents.create({
+            amount: amountInCents,
+            currency: "PEN",
+            payment_method: id,
+            confirm: true
+        });
+
+        console.log(payment)
+       
+        res.send({ message: 'successfully pay' })
+    } catch (error) {
+        console.log(error)
+        res.json({ message: error.raw.message })
+    }
+});
+//metodo de pago stripe
 //midellewares
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -41,6 +70,7 @@ app.use(`/api/${config.API_VERSION}/tipoProducto`, tipoProductoRouter);
 app.use(`/api/${config.API_VERSION}/ventaInsumo`, VentaInsumoRouter);
 app.use(`/api/${config.API_VERSION}/ventaProducto`, VentaProductoRouter);
 app.use(`/api/${config.API_VERSION}/login`, loginRouter);
+app.use(`/api/${config.API_VERSION}/imagen`, imagenRouter);
 
 //export
 
@@ -64,6 +94,8 @@ import routerVentaProducto from './routes/ventaPro.routes.js'
 app.use('/api/v1/ventaProducto', routerVentaProducto)
 import routerAuthLogin from './routes/login.routes.js'
 app.use('/api/v1/login', routerAuthLogin)
+import routerImagen from './routes/imagen.routes.js'
+app.use('/api/v1/imagen', routerImagen)
 
 // swagger
 import swaggerUI from "swagger-ui-express";

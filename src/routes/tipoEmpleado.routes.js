@@ -12,7 +12,7 @@ const router = Router();
 
 router.get("/", getTipoEmpleado);
 
-router.post("/",requireToken,createTipoEmpleado);
+router.post("/",createTipoEmpleado);
 
 router.get("/:ID", getOneTipoEmpleado);
 

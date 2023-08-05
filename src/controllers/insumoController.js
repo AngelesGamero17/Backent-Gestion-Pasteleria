@@ -11,7 +11,7 @@ export const getInsumo = async (req, res) => {
 
 export const createInsumo = async (req, res) => {
   try {
-    const { ID,nombreInsumo,cantidadInsumo,fecCompra,tipoInsumo,precioInsumo,img} = req.body;
+    const { ID,nombreInsumo,cantidadInsumo,fecCompra,fecVen,tipoInsumo,precioInsumo,img} = req.body;
     //if (insumo) {
     //  return res.status(400).json({ message: "insumo ya existe" });
     //}
@@ -20,6 +20,7 @@ export const createInsumo = async (req, res) => {
       nombreInsumo,
       cantidadInsumo,
       fecCompra,
+      fecVen,
       tipoInsumo,
       precioInsumo,
       img
@@ -58,14 +59,15 @@ export const deleteInsumo = async (req, res) => {
   }
 };
 
+
 export const updateInsumo = async (req, res) => {
   try {
     const { ID } = req.params;
-    const { nombreInsumo,cantidadInsumo,fecCompra,tipoInsumo,precioInsumo,img} = req.body;
+    const { nombreInsumo,cantidadInsumo,fecCompra,fecVen,tipoInsumo,precioInsumo,img} = req.body;
     const insumo = await insumoModel.findOne({ where: { ID } });
     if (!insumo)
       return res.status(404).json({ message: "insumo no encontrado" });
-    await insumoModel.update({ nombreInsumo,cantidadInsumo,fecCompra,tipoInsumo,precioInsumo,img }, { where: { ID } });
+    await insumoModel.update({ nombreInsumo,cantidadInsumo,fecCompra,fecVen,tipoInsumo,precioInsumo,img }, { where: { ID } });
     res.status(200).json({ message: "insumo actualizado Correctamente" });
   } catch (error) {
     res.status(500).json(error);
