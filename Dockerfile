@@ -1,19 +1,21 @@
-# Usa la imagen oficial de Node.js versión 14
+
+# Establecer la imagen base (Node.js)
 FROM node:19
 
-# Establece el directorio de trabajo dentro del contenedor
+# Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
 
-# Copia los archivos de tu proyecto al contenedor
-COPY . .
+# Copiar los archivos del proyecto al directorio de trabajo del contenedor
+COPY package*.json ./
 
-# Instala las dependencias
+# Instalar las dependencias del proyecto
 RUN npm install
 
-# Expone el puerto 5000 (ajústalo según tus necesidades)
+# Copiar el resto de los archivos del proyecto al directorio de trabajo del contenedor
+COPY . .
+
+# Exponer el puerto en el que la API escuchará (debe coincidir con el puerto de la API en el código)
 EXPOSE 5000
 
-# Comando para iniciar tu aplicación
-CMD ["npm","dev"]
-
-
+# Comando para iniciar la aplicación (debe coincidir con el comando en tu package.json)
+CMD ["npm","run", "dev"]

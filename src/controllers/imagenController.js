@@ -1,8 +1,8 @@
-import { imagenModel } from "../models/ImgenModel.js"
+import { ImagenModel } from "../models/ImgenModel.js"
 
 export const getImagen = async (req, res) => {
     try {
-        const respuesta = await imagenModel.findAll();
+        const respuesta = await ImagenModel.findAll();
         res.status(200).json(respuesta);
     } catch (error) {
         res.status(500).json(error);
@@ -15,7 +15,7 @@ export const createImagen = async (req, res) => {
         //if (insumo) {
         //  return res.status(400).json({ message: "insumo ya existe" });
         //}
-        const nuevoimagen = await imagenModel.create({
+        const nuevoimagen = await ImagenModel.create({
             ID,
             imgPro,
             imgIns,
@@ -35,7 +35,7 @@ export const createImagen = async (req, res) => {
 export const getOneImagen = async (req, res) => {
     try {
         const { ID } = req.params;
-        const imagen = await imagenModel.findOne({ where: { ID } });
+        const imagen = await ImagenModel.findOne({ where: { ID } });
         if (!imagen)
             return res.status(404).json({ message: "imagen no encontrado" });
         res.status(200).json(imagen);
@@ -47,10 +47,10 @@ export const getOneImagen = async (req, res) => {
 export const deleteImagen = async (req, res) => {
     try {
         const { ID } = req.params;
-        const imagen = await imagenModel.findOne({ where: { ID } });
+        const imagen = await ImagenModel.findOne({ where: { ID } });
         if (!imagen)
             return res.status(404).json({ message: "imagen no encontrado" });
-        await imagenModel.destroy({ where: { ID } });
+        await ImagenModel.destroy({ where: { ID } });
         res.status(200).json({ message: "imagen eliminado Satisfactoriamente" });
     } catch (error) {
         res.status(500).json(error);
@@ -61,10 +61,10 @@ export const updateImagen = async (req, res) => {
     try {
         const { ID } = req.params;
         const { imgPro, imgIns, imgProProduc, imgProIns,imgLogin } = req.body;
-        const imagen = await imagenModel.findOne({ where: { ID } });
+        const imagen = await ImagenModel.findOne({ where: { ID } });
         if (!imagen)
             return res.status(404).json({ message: "imagen no encontrado" });
-        await imagenModel.update({ imgPro, imgIns, imgProProduc, imgProIns,imgLogin }, { where: { ID } });
+        await ImagenModel.update({ imgPro, imgIns, imgProProduc, imgProIns,imgLogin }, { where: { ID } });
         res.status(200).json({ message: "imagen actualizado Correctamente" });
     } catch (error) {
         res.status(500).json(error);
